@@ -1,9 +1,12 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 import './menu-item.styles.scss'
-export default props=>{
-    const {title,imageUrl,size} = props
+const menuItem=(props)=>{
+    const {title,imageUrl,size,history,linkUrl,match} = props
+    // obs: history veio do router navigator
     return(
         <div
+            onClick={()=>history.push(`${match.url}${linkUrl}`)}
             className={`${size} menu-item`}>
             <div 
                 className='background-image'
@@ -18,3 +21,4 @@ export default props=>{
         </div>
     )
 }
+export default withRouter(menuItem)
