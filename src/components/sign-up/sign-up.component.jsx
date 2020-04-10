@@ -1,34 +1,35 @@
 import React from 'react'
-import './sign-in.styles.scss'
+import './sign-up.styles.scss'
 import FormInput from '../form-input/form-input.component'
 import CustomButtom from '../custom-button/custom-buttom.components'
-import {signInWithGoogle} from '../../firebase/firebase.utils'
-class SignIn extends React.Component{
+
+export default class SignUp extends React.Component{
     constructor(props){
         super(props)
         this.state={
+            name:'',
             email:'',
             password:''
         }
     }
-
-    handleSubmit=(event)=>{
-        event.preventDefault()
-        this.setState({email:'',password:''})
-    }
-
     handleChange=(event)=>{
         const {value,name}=event.target
         this.setState({[name]:value})
     }
-
     render(){
         return(
-            <div className='sign-in'>
-                <h2>I already have an account</h2>
-                <span>Sign in with your email and password</span>
+            <div className='sign-up'>
+                <h2>Create a new account</h2>
+                <span>Please inform your data</span>
 
                 <form onSubmit={this.handleSubmit}>
+                <FormInput 
+                        name='email'
+                        label='Name'
+                        handleChange={this.handleChange}
+                        value={this.state.email}
+                        required={true}/>
+
                     <FormInput 
                         name='email'
                         label='Email'
@@ -44,14 +45,10 @@ class SignIn extends React.Component{
                         handleChange={this.handleChange}
                         required={true}/>
                     <div className='buttons'>
-                        <CustomButtom type='submit'>SIGN IN</CustomButtom>
-                        <CustomButtom isGoogleSignIn onClick={signInWithGoogle}>SIGN IN With Google</CustomButtom>
+                        <CustomButtom type='submit'>SIGN UP</CustomButtom>
                     </div>
                 </form>
             </div>
         )
     }
 }
-
-
-export default SignIn
