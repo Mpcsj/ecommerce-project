@@ -25,7 +25,7 @@ export default class SignUp extends React.Component{
         const {displayName,email,password,confirmPassword} = this.state
         if(password.length < 6){
             alert('A senha deve ter no mínimo 6 caracteres')
-            return
+            return  
         }
         if(password!==confirmPassword){
             alert('Os campos "password" e "confirm password" não batem')

@@ -45,7 +45,7 @@ class SignIn extends React.Component{
                         required={true}/>
 
                     <FormInput 
-                        name='password'
+                        name='password' 
                         type='password'
                         label='password'
                         value={this.state.password} 
