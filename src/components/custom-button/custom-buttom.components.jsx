@@ -1,8 +1,9 @@
 import React from 'react'
 import './custom-buttom.styles.scss'
 
-export default ({children,isGoogleSignIn,...otherProps})=>(
-    <button className={`${isGoogleSignIn?'google-sign-in':''} custom-button`} {...otherProps}>
+export default ({children,isGoogleSignIn,inverted,...otherProps})=>(
+    <button className={`${inverted?'inverted':''} ${isGoogleSignIn?'google-sign-in':''} custom-button`}{...otherProps}
+    >
         {children}
     </button>
 )
