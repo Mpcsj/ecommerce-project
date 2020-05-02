@@ -1,4 +1,5 @@
 import CartTypes  from "./cart.types";
+import {REHYDRATE} from 'redux-persist'
 import {addItemtoCart,removeItemFromCart} from './cart.utils'
 const INITIAL_STATE={
     showCartDropDown:false,
@@ -7,6 +8,8 @@ const INITIAL_STATE={
 
 const cartReducer = (state=INITIAL_STATE,action)=>{
     switch(action.type){
+        case REHYDRATE:
+            return state
         case CartTypes.TOGGLE_SHOW_CART_DROPDOWN:
             return{
                 ...state,
