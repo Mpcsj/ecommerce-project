@@ -17,7 +17,8 @@ class SignIn extends React.Component{
         event.preventDefault()
         const {email, password} = this.state
         try{
-            await auth.signInWithEmailAndPassword(email,password)
+            let res =await auth.signInWithEmailAndPassword(email,password)
+            console.log('::obtido ao logar: ',res)
             this.setState({email:'',password:''})
         }catch(err){
             console.log('Error when signing: ',err.message)
